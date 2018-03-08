@@ -24,10 +24,10 @@ class ViewController: UIViewController {
     
     func updateUIWith(currentWeather: CurrentWeather) {
         self.imageView.image = currentWeather.icon
-        self.pressureLabel.text = "\(Int(currentWeather.pressure)) mm"
-        self.humidityLabel.text = "\(Int(currentWeather.humidity)) %"
-        self.temperatureLabel.text = "\(Int(currentWeather.temperature))˚C"
-        self.appearentTemperatureLabel.text = "Feels like: \(Int(currentWeather.temperature))˚C"
+        self.pressureLabel.text = currentWeather.pressureString
+        self.humidityLabel.text = currentWeather.humidityString
+        self.temperatureLabel.text = currentWeather.temperatureString
+        self.appearentTemperatureLabel.text = "Feels like: \(currentWeather.appearentTemperatureString)"
     }
     
 }
