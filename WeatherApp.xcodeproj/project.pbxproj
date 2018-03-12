@@ -41,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22881FD520573F6C0012AF15 /* Weather Model */ = {
+			isa = PBXGroup;
+			children = (
+				D408ECF22050D54B00384F5B /* CurrentWeather.swift */,
+				D408ECF42050D5EB00384F5B /* WeatherIconManager.swift */,
+			);
+			path = "Weather Model";
+			sourceTree = "<group>";
+		};
 		D408ECD420508C9000384F5B = {
 			isa = PBXGroup;
 			children = (
@@ -63,8 +72,7 @@
 				D408ECE020508C9000384F5B /* AppDelegate.swift */,
 				D408ECE220508C9000384F5B /* ViewController.swift */,
 				D46E5A782056186C0093FFF5 /* APIManager.swift */,
-				D408ECF22050D54B00384F5B /* CurrentWeather.swift */,
-				D408ECF42050D5EB00384F5B /* WeatherIconManager.swift */,
+				22881FD520573F6C0012AF15 /* Weather Model */,
 				D408ECE420508C9000384F5B /* Main.storyboard */,
 				D408ECE720508C9000384F5B /* Assets.xcassets */,
 				D408ECE920508C9000384F5B /* LaunchScreen.storyboard */,
