@@ -14,6 +14,7 @@
 		D408ECEB20508C9000384F5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D408ECE920508C9000384F5B /* LaunchScreen.storyboard */; };
 		D408ECF32050D54B00384F5B /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408ECF22050D54B00384F5B /* CurrentWeather.swift */; };
 		D408ECF52050D5EB00384F5B /* WeatherIconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D408ECF42050D5EB00384F5B /* WeatherIconManager.swift */; };
+		D46E5A792056186C0093FFF5 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46E5A782056186C0093FFF5 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D408ECEC20508C9000384F5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D408ECF22050D54B00384F5B /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		D408ECF42050D5EB00384F5B /* WeatherIconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconManager.swift; sourceTree = "<group>"; };
+		D46E5A782056186C0093FFF5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				D408ECE020508C9000384F5B /* AppDelegate.swift */,
 				D408ECE220508C9000384F5B /* ViewController.swift */,
+				D46E5A782056186C0093FFF5 /* APIManager.swift */,
 				D408ECF22050D54B00384F5B /* CurrentWeather.swift */,
 				D408ECF42050D5EB00384F5B /* WeatherIconManager.swift */,
 				D408ECE420508C9000384F5B /* Main.storyboard */,
@@ -144,6 +147,7 @@
 			files = (
 				D408ECE320508C9000384F5B /* ViewController.swift in Sources */,
 				D408ECF32050D54B00384F5B /* CurrentWeather.swift in Sources */,
+				D46E5A792056186C0093FFF5 /* APIManager.swift in Sources */,
 				D408ECE120508C9000384F5B /* AppDelegate.swift in Sources */,
 				D408ECF52050D5EB00384F5B /* WeatherIconManager.swift in Sources */,
 			);
