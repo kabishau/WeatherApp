@@ -1,7 +1,7 @@
 import Foundation
 
 typealias JSONTask = URLSessionDataTask
-typealias JSONCompletionHandler = ([String: Any]?, HTTPURLResponse?, Error?) -> Void
+typealias JSONCompletionHandler = ([String: AnyObject]?, HTTPURLResponse?, Error?) -> Void
 
 // generic enum, in this specific case should be type of CustomWeather
 enum APIResult<T> {
@@ -60,4 +60,31 @@ extension APIManager {
         }
         return dataTask
     }
+    
+    func fetch<T>(request: URLRequest, parse: @escaping ([String: AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void) {
+        
+        let dataTask = JSONTaskWith(request: request) { (json, response, error) in
+            
+            guard let json = json else {
+                if let error = error {
+                    completionHandler(APIResult.Failure(error))
+                }
+                return
+            }
+            
+            if let value = parse(json) {
+                completionHandler(APIResult.Success(value))
+            } else {
+                let error = NSError(domain: SWINetworkingErrorDomain, code: 200, userInfo: nil)
+                completionHandler(APIResult.Failure(error))
+            }
+            
+        }
+        dataTask.resume()
+    }
+    
+    
+    
+    
+    
 }

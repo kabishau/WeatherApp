@@ -29,7 +29,7 @@
 		D408ECF22050D54B00384F5B /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		D408ECF42050D5EB00384F5B /* WeatherIconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconManager.swift; sourceTree = "<group>"; };
 		D46E5A782056186C0093FFF5 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		D46E5A7A20576BD50093FFF5 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		D46E5A7A20576BD50093FFF5 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ErrorManager.swift; path = ../ErrorManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,6 @@
 		D408ECD420508C9000384F5B = {
 			isa = PBXGroup;
 			children = (
-				D46E5A7A20576BD50093FFF5 /* ErrorManager.swift */,
 				D408ECDF20508C9000384F5B /* WeatherApp */,
 				D408ECDE20508C9000384F5B /* Products */,
 			);
@@ -75,6 +74,7 @@
 				D408ECE020508C9000384F5B /* AppDelegate.swift */,
 				D408ECE220508C9000384F5B /* ViewController.swift */,
 				D46E5A782056186C0093FFF5 /* APIManager.swift */,
+				D46E5A7A20576BD50093FFF5 /* ErrorManager.swift */,
 				22881FD520573F6C0012AF15 /* Weather Model */,
 				D408ECE420508C9000384F5B /* Main.storyboard */,
 				D408ECE720508C9000384F5B /* Assets.xcassets */,
