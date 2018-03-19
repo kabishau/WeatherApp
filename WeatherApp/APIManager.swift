@@ -9,6 +9,14 @@ enum APIResult<T> {
     case Failure(Error)
 }
 
+// protocol for working with web address
+protocol FinalURLPoint {
+    var baseURL: URL { get }
+    var path: String { get }
+    var request: URLRequest { get }
+}
+
+
 // protocol/interface for working with network
 
 protocol APIManager {
