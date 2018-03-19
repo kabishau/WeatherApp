@@ -18,11 +18,8 @@ protocol APIManager {
     
     func JSONTaskWith(request: URLRequest, completionHandler: JSONCompletionHandler) -> JSONTask
     // using generic
-    func fetch<T>(request: URLRequest, parse: ([String: AnyObject]) -> T?, completionHandler: (APIResult<T>) -> Void)
-    
-    // to define type of session configuration
-    init(sessionConfiguration: URLSessionConfiguration)
-    
+    func fetch<T>(request: URLRequest, parse: @escaping ([String: AnyObject]) -> T?, completionHandler: (APIResult<T>) -> Void)
+       
 }
 
 extension APIManager {
