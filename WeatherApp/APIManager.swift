@@ -9,6 +9,11 @@ enum APIResult<T> {
     case Failure(Error)
 }
 
+//
+protocol JSONDecodable {
+    init?(JSON: [String: AnyObject])
+}
+
 // protocol for working with web address
 protocol FinalURLPoint {
     var baseURL: URL { get }
@@ -26,7 +31,7 @@ protocol APIManager {
     
     func JSONTaskWith(request: URLRequest, completionHandler: JSONCompletionHandler) -> JSONTask
     // using generic
-    func fetch<T>(request: URLRequest, parse: @escaping ([String: AnyObject]) -> T?, completionHandler: (APIResult<T>) -> Void)
+    func fetch<T: JSONDecodable>(request: URLRequest, parse: @escaping ([String: AnyObject]) -> T?, completionHandler: (APIResult<T>) -> Void)
        
 }
 
