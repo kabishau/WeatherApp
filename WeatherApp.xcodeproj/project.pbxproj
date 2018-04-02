@@ -77,12 +77,12 @@
 				D408ECE220508C9000384F5B /* ViewController.swift */,
 				22808341206053E90052921A /* APIWeatherManager.swift */,
 				D46E5A782056186C0093FFF5 /* APIManager.swift */,
+				2215E2AD2072BDB0003213DA /* ErrorManager.swift */,
 				22881FD520573F6C0012AF15 /* Weather Model */,
 				D408ECE420508C9000384F5B /* Main.storyboard */,
 				D408ECE720508C9000384F5B /* Assets.xcassets */,
 				D408ECE920508C9000384F5B /* LaunchScreen.storyboard */,
 				D408ECEC20508C9000384F5B /* Info.plist */,
-				2215E2AD2072BDB0003213DA /* ErrorManager.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
