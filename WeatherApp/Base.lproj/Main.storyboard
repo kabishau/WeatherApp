@@ -122,7 +122,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="appearentTemperatureLabel" destination="kr5-5R-Cfd" id="gaX-qo-bfJ"/>
+                        <outlet property="apparentTemperatureLabel" destination="kr5-5R-Cfd" id="yrM-4X-xxx"/>
                         <outlet property="humidityLabel" destination="PZL-SC-bHb" id="qN2-HU-Ac4"/>
                         <outlet property="imageView" destination="HJh-Ed-a1E" id="gXl-cu-cJo"/>
                         <outlet property="locationLabel" destination="XZx-ar-orR" id="KRq-LQ-Cxy"/>

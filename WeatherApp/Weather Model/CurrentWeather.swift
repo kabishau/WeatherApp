@@ -41,7 +41,7 @@ extension CurrentWeather {
     var temperatureString: String {
         return "\(Int(temperature))˚C"
     }
-    var appearentTemperatureString: String {
+    var apparentTemperatureString: String {
         return "\(Int(apparentTemperature))˚C"
     }
 }

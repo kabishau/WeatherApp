@@ -32,6 +32,7 @@ enum ForecastType: FinalURLPoint {
 // final - no one can inherit this class
 final class APIWeatherManager: APIManager {
     
+    
     var sessionConfiguration: URLSessionConfiguration
     
     // this session will be created only when we start using it
