@@ -2,6 +2,7 @@ import Foundation
 //
 ////typealias JSONTask = URLSessionDataTask
 ////typealias JSONCompletionHandler = ([String: AnyObject]?, HTTPURLResponse?, Error?) -> Void
+
 //
 protocol JSONDecodable {
     init?(JSON: [String: AnyObject])

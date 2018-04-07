@@ -11,7 +11,9 @@ struct CurrentWeather {
 }
 
 extension CurrentWeather: JSONDecodable {
+    
     init?(JSON: [String : AnyObject]) {
+        
         guard let temperature = JSON["temperature"] as? Double,
         let apparentTemperature = JSON["apparentTemperature"] as? Double,
             let humidity = JSON["humidity"] as? Double,

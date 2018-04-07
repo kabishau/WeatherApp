@@ -6,6 +6,7 @@ struct Coordinates {
 }
 
 enum ForecastType: FinalURLPoint {
+    
     case Current(apiKey: String, coordinates: Coordinates)
     
     var baseURL: URL {
@@ -50,6 +51,7 @@ final class APIWeatherManager: APIManager {
         self.init(sessionConfiguration: URLSessionConfiguration.default, apiKey: apiKey)
     }
     
+    // method that returns Current Weather
     func fetchCurrentWeatherWith(coordinates: Coordinates, completionHandler: @escaping (APIResult<CurrentWeather>) -> Void) {
         let request = ForecastType.Current(apiKey: self.apiKey, coordinates: coordinates).request
         
