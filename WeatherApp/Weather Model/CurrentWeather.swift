@@ -8,7 +8,6 @@ struct CurrentWeather {
     let humidity: Double
     let pressure: Double
     let icon: UIImage
-    
 }
 
 extension CurrentWeather: JSONDecodable {
@@ -28,7 +27,6 @@ extension CurrentWeather: JSONDecodable {
         self.icon = WeatherIconManager(rawValue: iconString).image
         
     }
-    
 }
 
 extension CurrentWeather {

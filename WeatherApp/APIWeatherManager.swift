@@ -6,14 +6,15 @@ struct Coordinates {
 }
 
 enum ForecastType: FinalURLPoint {
-    
     case Current(apiKey: String, coordinates: Coordinates)
     
     var baseURL: URL {
-        return URL(string: "https://api.forecast.io")!
+        return URL(string: "https://api.darksky.net")!
     }
     
     var path: String {
+        // using self refer to enum itself;
+        // because of it doesn't have other then Current option default is not required
         switch self {
         case .Current(let apiKey, let coordinates):
             return "/forecast/\(apiKey)/\(coordinates.latitude),\(coordinates.longitude)"
@@ -21,39 +22,35 @@ enum ForecastType: FinalURLPoint {
     }
     
     var request: URLRequest {
-        let url = URL(string: path, relativeTo: baseURL)
-        return URLRequest(url: url!)
+        let url = URL(fileURLWithPath: path, relativeTo: baseURL)
+        return URLRequest(url: url)
     }
     
 }
 
-
-
-// final - no one can inherit this class
 final class APIWeatherManager: APIManager {
     
+    let sessionConfiguration: URLSessionConfiguration
     
-    var sessionConfiguration: URLSessionConfiguration
-    
-    // this session will be created only when we start using it
+    // will be created at the moment when we call it
     lazy var session: URLSession = {
         return URLSession(configuration: self.sessionConfiguration)
     }()
     
     let apiKey: String
     
+    // designated init - list all members
     init(sessionConfiguration: URLSessionConfiguration, apiKey: String) {
         self.sessionConfiguration = sessionConfiguration
         self.apiKey = apiKey
     }
     
-    // conveniece init - because almost every time we gonna use defalt session configuration
+    // convenience initializer for default session configuration
     convenience init(apiKey: String) {
         self.init(sessionConfiguration: URLSessionConfiguration.default, apiKey: apiKey)
     }
     
-    
-    func fetchWeatherWith(coordinates: Coordinates, completionHandler: @escaping (APIResult<CurrentWeather>) -> Void) {
+    func fetchCurrentWeatherWith(coordinates: Coordinates, completionHandler: @escaping (APIResult<CurrentWeather>) -> Void) {
         let request = ForecastType.Current(apiKey: self.apiKey, coordinates: coordinates).request
         
         fetch(request: request, parse: { (json) -> CurrentWeather? in
@@ -65,5 +62,16 @@ final class APIWeatherManager: APIManager {
         }, completionHandler: completionHandler)
     }
     
+    
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
+
