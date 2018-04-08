@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     }
     
     func fetchCurrentWeatherData(){
+        
+        // this function is working in background so to update UI we need to move some parts of code into the main thread
         weatherManager.fetchCurrentWeatherWith(coordinates: coordinates) { (result) in
             
             switch result {
