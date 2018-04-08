@@ -9,8 +9,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var apparentTemperatureLabel: UILabel!
     @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func refreshButtonTapped(_ sender: Any) {
+        toggleActivityIndicator(on: true)
+        fetchCurrentWeatherData()
+    }
+    
+    func toggleActivityIndicator(on: Bool) {
+        refreshButton.isHidden = on
+        
+        if on {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
     }
     
     lazy var weatherManager = APIWeatherManager(apiKey: "2c745dcd4c911f5d486945ea8f00899f")
@@ -28,6 +41,9 @@ class ViewController: UIViewController {
         
         // this function is working in background so to update UI we need to move some parts of code into the main thread
         weatherManager.fetchCurrentWeatherWith(coordinates: coordinates) { (result) in
+            
+            // to hide activity indicator after getting data
+            self.toggleActivityIndicator(on: false)
             
             switch result {
                 

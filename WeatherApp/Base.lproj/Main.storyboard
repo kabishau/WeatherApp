@@ -50,13 +50,16 @@
                                         <rect key="frame" x="0.0" y="216.5" width="375" height="61"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="740 mm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N37-44-gfr">
-                                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="61"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="61"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="U7l-yZ-aCo">
+                                                <rect key="frame" x="125" y="0.0" width="125" height="61"/>
+                                            </activityIndicatorView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZL-SC-bHb">
-                                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="61"/>
+                                                <rect key="frame" x="250" y="0.0" width="125" height="61"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -122,6 +125,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="U7l-yZ-aCo" id="O86-GA-c0A"/>
                         <outlet property="apparentTemperatureLabel" destination="kr5-5R-Cfd" id="yrM-4X-xxx"/>
                         <outlet property="humidityLabel" destination="PZL-SC-bHb" id="qN2-HU-Ac4"/>
                         <outlet property="imageView" destination="HJh-Ed-a1E" id="gXl-cu-cJo"/>
