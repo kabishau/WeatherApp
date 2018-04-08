@@ -13,14 +13,37 @@ class ViewController: UIViewController {
     @IBAction func refreshButtonTapped(_ sender: Any) {
     }
     
+    lazy var weatherManager = APIWeatherManager(apiKey: "2c745dcd4c911f5d486945ea8f00899f")
+    
+    // coordinates of Miami
+    let coordinates = Coordinates(latitude: 25.800938, longitude: -80.286453)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let icon = WeatherIconManager.Rain.image
-        let currentWeather = CurrentWeather(temperature: 10.0, apparentTemperature: 5.0, humidity: 30, pressure: 250, icon: icon)
-        
-        updateUIWith(currentWeather: currentWeather)
-        
+        fetchCurrentWeatherData()
+    }
+    
+    func fetchCurrentWeatherData(){
+        weatherManager.fetchCurrentWeatherWith(coordinates: coordinates) { (result) in
+            
+            switch result {
+                
+            case .Success(let currentWeather):
+                self.updateUIWith(currentWeather: currentWeather)
+            case .Failure(let error as NSError):
+                
+                // can be mooved to function (takes 3 parameters) outside of this scope
+                // also AlertManager can be created, so this function can be reusable for all AlertControllers
+                let alertController = UIAlertController(title: "Unable to get data ", message: "\(error.localizedDescription)", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+                print(error)
+            //default: break
+            }
+        }
     }
     
     func updateUIWith(currentWeather: CurrentWeather) {
@@ -28,7 +51,7 @@ class ViewController: UIViewController {
         self.pressureLabel.text = currentWeather.pressureString
         self.humidityLabel.text = currentWeather.humidityString
         self.temperatureLabel.text = currentWeather.temperatureString
-        self.apparentTemperatureLabel.text = "Feels like: \(currentWeather.apparentTemperatureString)"
+        self.apparentTemperatureLabel.text = currentWeather.apparentTemperatureString
     }
     
 }

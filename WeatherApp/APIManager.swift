@@ -36,10 +36,10 @@ protocol APIManager {
 }
 
 extension APIManager {
-    
+
     func JSONTaskWith(request: URLRequest, completionHandler: @escaping ([String: AnyObject]?, HTTPURLResponse?, Error?) -> Void) -> URLSessionDataTask {
         let dataTask = session.dataTask(with: request) { (data, response, error) in
-            
+
             // checking is the response is a HTTPURLResponse
             guard let HTTPResponse = response as? HTTPURLResponse else {
                 // best practice for user info is not to use String: String value
@@ -48,7 +48,7 @@ extension APIManager {
                 completionHandler(nil, nil, error)
                 return
             }
-            
+
             // in case if we get HTTPResponse but data is nil or not nil (else)
             if data == nil {
                 if let error = error {
@@ -70,28 +70,34 @@ extension APIManager {
         }
         return dataTask
     }
-    
+
     func fetch<T>(request: URLRequest, parse: @escaping ([String: AnyObject]) -> T?, completionHandler: @escaping(APIResult<T>) -> Void) {
-        
+
         let dataTask = JSONTaskWith(request: request) { (json, response, error) in
-            
-            guard let json = json else {
-                if let error = error {
+
+            // UI update should be updated in main thread
+            DispatchQueue.main.async(execute: {
+
+                guard let json = json else {
+                    if let error = error {
+                        completionHandler(APIResult.Failure(error))
+                    }
+                    return
+                }
+
+                if let value = parse(json) {
+                    completionHandler(APIResult.Success(value))
+                } else {
+                    let error = NSError(domain: SWINetworkingErrorDomain, code: UnexpectedResponseError, userInfo: nil)
                     completionHandler(APIResult.Failure(error))
                 }
-                return
-            }
-            
-            if let value = parse(json) {
-                completionHandler(APIResult.Success(value))
-            } else {
-                let error = NSError(domain: SWINetworkingErrorDomain, code: UnexpectedResponseError, userInfo: nil)
-                completionHandler(APIResult.Failure(error))
-            }
+
+            })
         }
         dataTask.resume()
     }
 }
+
 
 
 
