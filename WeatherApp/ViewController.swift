@@ -12,6 +12,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // instance of LocationManager
     let locationManager = CLLocationManager()
     
     @IBAction func refreshButtonTapped(_ sender: Any) {
@@ -37,6 +38,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
@@ -48,7 +50,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // this method is called when user's geoposition is updated
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last! as CLLocation
-        print("My location latitude: \(userLocation.coordinate.latitude) and longitude: \(userLocation.coordinate.longitude)")
+        
+        print("my locayion latitude: \(userLocation.coordinate.latitude), longitude: \(userLocation.coordinate.longitude)")
     }
     
     func fetchCurrentWeatherData(){
